@@ -1,0 +1,13 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+COPY requirements-ML.txt /app
+
+RUN pip install --no-cache-dir -r requirements-ML.txt
+
+COPY analize_temp.py /app
+COPY models.py /app
+COPY database.py /app
+
+CMD ["python","-u","analize_temp.py"]
